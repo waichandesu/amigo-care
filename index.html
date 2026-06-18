@@ -4,17 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>パブリコ定休日ケア｜さこうクリエーションラボ</title>
+<title>世田谷応援ケア｜さこうクリエーションラボ</title>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&family=Zen+Kaku+Gothic+New:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #fdf0f3;
-    --warm: #f5d0d8;
-    --brown: #8B8CD6;
-    --brown-light: #a9aae0;
-    --brown-mid: #7a7bc8;
-    --green: #8B8CD6;
-    --green-light: #eeeefc;
+    --cream: #f7f3ee;
+    --warm: #e8ddd0;
+    --brown: #5c3d2e;
+    --brown-light: #9a7060;
+    --brown-mid: #7a5040;
+    --green: #6b8c6e;
+    --green-light: #eaf0eb;
     --accent: #c4845a;
     --text: #3a2820;
   }
@@ -29,14 +29,13 @@
     min-height: 100vh;
   }
 
-  /* 背景テクスチャ */
   body::before {
     content: '';
     position: fixed;
     inset: 0;
     background-image: 
-      radial-gradient(ellipse at 20% 20%, rgba(139,140,214,0.08) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 80%, rgba(245,160,180,0.07) 0%, transparent 50%);
+      radial-gradient(ellipse at 20% 20%, rgba(107,140,110,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(196,132,90,0.07) 0%, transparent 50%);
     pointer-events: none;
     z-index: 0;
   }
@@ -49,7 +48,6 @@
     padding: 0 24px 80px;
   }
 
-  /* ヘッダー */
   .header {
     padding: 52px 0 36px;
     text-align: center;
@@ -82,14 +80,6 @@
     letter-spacing: 0.15em;
   }
 
-  .divider {
-    width: 40px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--brown-light), transparent);
-    margin: 24px auto;
-  }
-
-  /* 説明文 */
   .description {
     background: white;
     border-radius: 16px;
@@ -106,12 +96,11 @@
     margin-top: 12px;
   }
 
-  /* 日程セクション */
   .section-label {
     font-family: 'Shippori Mincho', serif;
     font-size: 13px;
     letter-spacing: 0.2em;
-    color: #8B8CD6;
+    color: var(--green);
     margin-bottom: 14px;
     display: flex;
     align-items: center;
@@ -133,7 +122,6 @@
     margin-bottom: 32px;
     animation: fadeUp 0.8s 0.3s ease both;
   }
-
 
   .schedule-link {
     text-decoration: none;
@@ -226,68 +214,6 @@
     box-shadow: 0 6px 20px rgba(92,61,46,0.08);
   }
 
-  .schedule-date {
-    font-family: 'Shippori Mincho', serif;
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--brown);
-    min-width: 48px;
-    text-align: center;
-    line-height: 1;
-    padding-top: 4px;
-  }
-
-  .schedule-date-unit {
-    font-size: 13px;
-    color: var(--brown-mid);
-    letter-spacing: 0.1em;
-    margin-top: 2px;
-    text-align: center;
-  }
-
-  .schedule-divider {
-    width: 1px;
-    height: 36px;
-    background: var(--warm);
-  }
-
-  .schedule-info {
-    flex: 1;
-  }
-
-  .schedule-day {
-    font-size: 16px;
-    color: var(--brown);
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    margin-bottom: 3px;
-  }
-
-  .schedule-time {
-    font-size: 14px;
-    color: var(--brown-mid);
-    letter-spacing: 0.05em;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    margin-top: 6px;
-  }
-
-  .schedule-time span {
-    display: block;
-  }
-
-  .schedule-badge {
-    font-size: 10px;
-    color: #8B8CD6;
-    background: var(--green-light);
-    border-radius: 20px;
-    padding: 3px 10px;
-    letter-spacing: 0.05em;
-    white-space: nowrap;
-  }
-
-  /* 予約ボタン */
   .cta-section {
     animation: fadeUp 0.8s 0.4s ease both;
   }
@@ -339,7 +265,6 @@
     letter-spacing: 0.1em;
   }
 
-  /* プロフィール */
   .profile-section {
     background: white;
     border-radius: 20px;
@@ -382,7 +307,6 @@
     line-height: 1.8;
   }
 
-  /* フッター */
   .footer {
     margin-top: 48px;
     text-align: center;
@@ -403,16 +327,31 @@
     letter-spacing: 0.1em;
   }
 
-  /* アニメーション */
+
+  .schedule-item.ended {
+    opacity: 0.45;
+    pointer-events: none;
+  }
+
+  .schedule-item.ended .schedule-day-main::after {
+    content: '　終了';
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--brown-light);
+    letter-spacing: 0.05em;
+  }
+
+  .schedule-item.ended .schedule-reserve {
+    background: #ccc;
+  }
+
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(16px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* スマホ調整 */
   @media (max-width: 360px) {
     .header-title { font-size: 24px; }
-    .schedule-date { font-size: 20px; }
   }
 </style>
 </head>
@@ -420,18 +359,19 @@
 <div class="container">
 
   <div class="header">
-    <div class="header-label">Amigo × Saco Creation Lab</div>
-    <div class="header-title">パブリコ定休日ケア</div>
-    <div class="header-sub">パブリコ（世田谷梅が丘）</div>
+    <div class="header-label">Saco Creation Lab</div>
+    <div class="header-title">世田谷応援ケア</div>
+    <div class="header-sub">パブリコ（世田谷区梅が丘）</div>
   </div>
 
   <div class="description">
     <p>パブリコさんにて、野口整体の個別ケアを行っております。</p>
     <p>1枠60分（ご予約優先）</p>
-    <p>料金　大人：8,000円、お子さま：4,000円</p>
-    <p>ご予約は「予約する」ボタンよりLINE予約または直接さこうにメッセージください。</p>
+    <p>料金　大人：10,000円、お子さま：5,000円</p>
+    <p>ご予約は「予約する」ボタンよりLINE予約または直接さこうにメッセージください。（LINE、メッセンジャーなどなんでも可です）</p>
     <p style="font-size:12px; color: var(--brown-light); margin-top:14px; line-height:2;">
-      ※ Amigo関係者さま限定でご案内しています。<br>
+      ※ ご紹介・ご縁のある方限定でご案内しています。<br>
+      ※ 世田谷在住・在勤・在学に限らずお受けいただけます。
     </p>
   </div>
 
@@ -439,11 +379,11 @@
 
   <div class="schedule-list">
     <!-- ▼ ここの日程を毎月書き換えます ▼ -->
-    <a class="schedule-item schedule-link" href="https://liff.line.me/2008532962-3VRqVQp4?liff_id=2008532962-3VRqVQp4&group_id=183388">
+    <a class="schedule-item schedule-link" href="https://liff.line.me/2008532962-3VRqVQp4?liff_id=2008532962-3VRqVQp4&group_id=183388" data-date="2026-06-18">
       <div class="schedule-head">
         <div class="schedule-head-left">
           <div class="schedule-day-main">6月18日（木）</div>
-          <div class="schedule-slots">全5枠</div>
+          <div class="schedule-slots">全7枠</div>
         </div>
         <div class="schedule-reserve">予約する ›</div>
       </div>
@@ -454,7 +394,7 @@
       </div>
     </a>
 
-    <a class="schedule-item schedule-link" href="https://liff.line.me/2008532962-3VRqVQp4?liff_id=2008532962-3VRqVQp4&group_id=183391">
+    <a class="schedule-item schedule-link" href="https://liff.line.me/2008532962-3VRqVQp4?liff_id=2008532962-3VRqVQp4&group_id=183391" data-date="2026-06-28">
       <div class="schedule-head">
         <div class="schedule-head-left">
           <div class="schedule-day-main">6月28日（日）</div>
@@ -469,8 +409,7 @@
       </div>
     </a>
 
-    <!-- ▼ 7月のURLができたら XXXXXXX を差し替えてください ▼ -->
-    <a class="schedule-item schedule-link" href="https://liff.line.me/2008532962-3VRqVQp4?liff_id=2008532962-3VRqVQp4&group_id=184168">
+    <a class="schedule-item schedule-link" href="https://liff.line.me/2008532962-3VRqVQp4?liff_id=2008532962-3VRqVQp4&group_id=184168" data-date="2026-07-16">
       <div class="schedule-head">
         <div class="schedule-head-left">
           <div class="schedule-day-main">7月16日（木）</div>
@@ -486,7 +425,7 @@
       </div>
     </a>
 
-    <a class="schedule-item schedule-link" href="https://liff.line.me/2008532962-3VRqVQp4?liff_id=2008532962-3VRqVQp4&group_id=184169">
+    <a class="schedule-item schedule-link" href="https://liff.line.me/2008532962-3VRqVQp4?liff_id=2008532962-3VRqVQp4&group_id=184169" data-date="2026-07-26">
       <div class="schedule-head">
         <div class="schedule-head-left">
           <div class="schedule-day-main">7月26日（日）</div>
@@ -506,7 +445,6 @@
 
   <div class="cta-section">
     <div class="cta-note">ご予約はLINE予約または直接メッセージにて承ります。</div>
-    <!-- ▼ 直接メッセージ用のLINE公式URLをここに入れてください ▼ -->
     <a href="https://line.me/R/ti/p/@217mfkyf" class="cta-btn">
       LINEで直接メッセージする
       <span class="cta-btn-sub">タップするとLINEが開きます</span>
@@ -523,9 +461,24 @@
 
   <div class="footer">
     <div class="footer-name">さこうクリエーションラボ</div>
-    <div class="footer-note">このページはAmigo関係者の方限定でご案内しています</div>
+    <div class="footer-note">このページはご紹介の方限定でご案内しています</div>
   </div>
 
 </div>
+
+<script>
+  (function() {
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    today.setDate(today.getDate() - 1);
+    var cards = document.querySelectorAll('.schedule-item[data-date]');
+    cards.forEach(function(card) {
+      var d = new Date(card.getAttribute('data-date'));
+      if (d < today) {
+        card.classList.add('ended');
+      }
+    });
+  })();
+</script>
 </body>
 </html>
